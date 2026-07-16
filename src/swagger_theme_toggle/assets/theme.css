@@ -174,12 +174,16 @@ html[data-theme="system"] .swagger-ui section.models {
   color: var(--text);
 }
 
-/* Description text under a row summary is secondary copy, so it's muted */
+/*
+ * Description text under a row summary ("Delete Item", "Partially update
+ * an item.", etc). --text-muted read too dim against the tinted row
+ * backgrounds (DELETE/PATCH especially), so this is --text instead.
+ */
 html[data-theme="dark"] .swagger-ui .opblock-summary-description,
 html[data-theme="dark"] .swagger-ui .opblock-description-wrapper p,
 html[data-theme="system"] .swagger-ui .opblock-summary-description,
 html[data-theme="system"] .swagger-ui .opblock-description-wrapper p {
-  color: var(--text-muted);
+  color: var(--text);
 }
 
 /* Tag headers, e.g. "users", "items" */
@@ -384,6 +388,29 @@ html[data-theme="system"] .swagger-ui .models-control {
 
 html[data-theme="dark"] .swagger-ui .models-control svg,
 html[data-theme="system"] .swagger-ui .models-control svg {
+  fill: var(--text-muted);
+}
+
+/*
+ * Icon sweep. Every one of these icons has a real fill color in vanilla
+ * swagger-ui.css, but only under `html.dark-mode` - Swagger UI's own
+ * built-in dark theme, which is a class toggle we never add since we use
+ * data-theme instead. With no matching rule active, they fall back to each
+ * SVG's unset default fill, which is opaque black, so they read as solid
+ * black icons on a dark background: invisible. This is what made the
+ * per-row expand/collapse chevron and the tag-level "expand all" chevron
+ * disappear.
+ */
+html[data-theme="dark"] .swagger-ui .opblock-control-arrow svg,
+html[data-theme="dark"] .swagger-ui .expand-operation svg,
+html[data-theme="dark"] .swagger-ui .authorization__btn svg,
+html[data-theme="dark"] .swagger-ui .dialog-ux .modal-ux-header .close-modal svg,
+html[data-theme="dark"] .swagger-ui .json-schema-2020-12 button svg,
+html[data-theme="system"] .swagger-ui .opblock-control-arrow svg,
+html[data-theme="system"] .swagger-ui .expand-operation svg,
+html[data-theme="system"] .swagger-ui .authorization__btn svg,
+html[data-theme="system"] .swagger-ui .dialog-ux .modal-ux-header .close-modal svg,
+html[data-theme="system"] .swagger-ui .json-schema-2020-12 button svg {
   fill: var(--text-muted);
 }
 
