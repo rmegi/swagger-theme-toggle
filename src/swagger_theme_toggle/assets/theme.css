@@ -174,12 +174,16 @@ html[data-theme="system"] .swagger-ui section.models {
   color: var(--text);
 }
 
-/* Description text under a row summary is secondary copy, so it's muted */
+/*
+ * Description text under a row summary ("Delete Item", "Partially update
+ * an item.", etc). --text-muted read too dim against the tinted row
+ * backgrounds (DELETE/PATCH especially), so this is --text instead.
+ */
 html[data-theme="dark"] .swagger-ui .opblock-summary-description,
 html[data-theme="dark"] .swagger-ui .opblock-description-wrapper p,
 html[data-theme="system"] .swagger-ui .opblock-summary-description,
 html[data-theme="system"] .swagger-ui .opblock-description-wrapper p {
-  color: var(--text-muted);
+  color: var(--text);
 }
 
 /* Tag headers, e.g. "users", "items" */
