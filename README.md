@@ -5,6 +5,8 @@ Adds a Light / Dark / Auto theme toggle to FastAPI's Swagger UI docs page.
 ## Install
 
 ```bash
+pip install swagger-theme-toggle
+# or
 uv add swagger-theme-toggle
 ```
 
