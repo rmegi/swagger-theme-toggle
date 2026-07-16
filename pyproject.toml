@@ -1,6 +1,6 @@
 [project]
 name = "swagger-theme-toggle"
-version = "0.1.0"
+version = "0.1.1"
 description = "Light / dark / system theme toggle for FastAPI's Swagger UI docs page"
 readme = "README.md"
 license = "MIT"
