@@ -388,6 +388,29 @@ html[data-theme="system"] .swagger-ui .models-control svg {
 }
 
 /*
+ * Icon sweep. Every one of these icons has a real fill color in vanilla
+ * swagger-ui.css, but only under `html.dark-mode` - Swagger UI's own
+ * built-in dark theme, which is a class toggle we never add since we use
+ * data-theme instead. With no matching rule active, they fall back to each
+ * SVG's unset default fill, which is opaque black, so they read as solid
+ * black icons on a dark background: invisible. This is what made the
+ * per-row expand/collapse chevron and the tag-level "expand all" chevron
+ * disappear.
+ */
+html[data-theme="dark"] .swagger-ui .opblock-control-arrow svg,
+html[data-theme="dark"] .swagger-ui .expand-operation svg,
+html[data-theme="dark"] .swagger-ui .authorization__btn svg,
+html[data-theme="dark"] .swagger-ui .dialog-ux .modal-ux-header .close-modal svg,
+html[data-theme="dark"] .swagger-ui .json-schema-2020-12 button svg,
+html[data-theme="system"] .swagger-ui .opblock-control-arrow svg,
+html[data-theme="system"] .swagger-ui .expand-operation svg,
+html[data-theme="system"] .swagger-ui .authorization__btn svg,
+html[data-theme="system"] .swagger-ui .dialog-ux .modal-ux-header .close-modal svg,
+html[data-theme="system"] .swagger-ui .json-schema-2020-12 button svg {
+  fill: var(--text-muted);
+}
+
+/*
  * Rule 5: required-field asterisk and validation error badges. The model
  * (schema) tree's required indicator uses a `.star` class; the Parameters
  * table's required indicator is a plain `<span>*</span>` inside
